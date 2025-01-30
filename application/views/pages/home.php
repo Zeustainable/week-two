@@ -38,7 +38,7 @@
             <div class="card-body card-introduction">
               <h5 class="card-title">Portfolio</h5>
               <p class="card-text card-justify">A portfolio showcases your skills, achievements, and experiences, presenting your best work to potential employers or clients.</p>
-              <a href="<?=base_url('pages/portfolio'); ?>" class="btn btn-primary btn-introduction">Portfolio</a>
+              <a href="<?=base_url('Pages/Portfolio'); ?>" class="btn btn-primary btn-introduction">Portfolio</a>
             </div>
           </div>
           <div class="card card-hover" style="width: auto;">
@@ -46,7 +46,7 @@
             <div class="card-body card-introduction">
               <h5 class="card-title">CRUD Application</h5>
               <p class="card-text card-justify">A CRUD application manages data by enabling Create, Read, Update, and Delete operations, streamlining database interactions for users.</p>
-              <a href="<?=base_url('pages/login'); ?>" class="btn btn-primary btn-introduction">CRUD Application</a>
+              <a href="<?=base_url('Pages/Login'); ?>" class="btn btn-primary btn-introduction">CRUD Application</a>
             </div>
           </div>
           <div class="card card-hover" style="width: auto;">
@@ -54,7 +54,7 @@
             <div class="card-body card-introduction">
               <h5 class="card-title">Calculator</h5>
               <p class="card-text card-justify">A simple calculator performs basic arithmetic operations: addition, subtraction, multiplication, and division, enabling quick calculations.</p>
-              <a href="<?=base_url('pages/login'); ?>" class="btn btn-primary btn-introduction">Calculator</a>
+              <a href="<?=base_url('Pages/Login'); ?>" class="btn btn-primary btn-introduction">Calculator</a>
             </div>
           </div>
         </div>

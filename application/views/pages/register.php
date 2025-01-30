@@ -3,7 +3,7 @@
         <div class="divLeftColumn divRegisterLeft w3-animate-right">
         </div>
         <div class="divRightColumn divRegisterRight">
-            <form action="" method="POST">
+            <form action="<?= base_url('Pages/Account_register'); ?>" method="POST">
                 <section class="">
                     <div class="divRegisterBorder">
                         <h1>REGISTER</h1>
@@ -27,7 +27,7 @@
                             </div>
                         </div>
                         <hr />
-                        <p>Already have an account? <a href="<?=base_url('pages/login');?>">Sign In</a></p>
+                        <p>Already have an account? <a href="<?=base_url('Pages/Login');?>">Sign In</a></p>
                         <div class="divRegisterButton">
                             <button type="submit">Sign Up</button>
                         </div>

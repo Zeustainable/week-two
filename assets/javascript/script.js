@@ -63,12 +63,28 @@ appendText.forEach(button => {
     });
 });
 
-// ==================================== DELETE SWEET ALERT ==================================== //
+// ==================================== CRUD SWEET ALERT ==================================== //
 
-function confirmDelete(formId) {
+function confirmButton(formId, formType) {
+    var getIcon = '';
+    switch(formType) {
+        case "view": {
+            getIcon = 'info';
+            break;
+        }
+        case "edit": {
+            getIcon = 'warning';
+            break;
+        }
+        case "delete": {
+            getIcon = 'error';
+            break;
+        }
+    }
+
     swal({
-        title: 'Are you sure you want to delete?',
-        icon: 'warning',
+        title: 'Are you sure you want to '+ formType +'?',
+        icon: getIcon,
         buttons: true,
     }).then((willDelete) => {
         if (willDelete) {

@@ -2,73 +2,62 @@
     class Pages extends MY_Controller {
         public function __construct() {
             parent::__construct();
+            $this->load->library('session');
             $this->load->model('Account_model');
         }
         
-        public function view() {
-            $page = "home";
+        // ================================ LANDING PAGE ================================ //
+
+        public function View() {
             $data['PageTitle'] = 'Home';
-            $this->render('pages', $page, $data);
+            $this->render('pages', $data);
         }
 
-        public function login() {
-            $page = "login";
+        // ================================ LOGIN PAGE ================================ //
+
+        public function Login() {
             $data['PageTitle'] = 'Login';
-            $this->render('pages', $page, $data);
+            $this->render('pages', $data);
         }
 
-        public function register() {
-            $page = "register";
+        // ================================ REGISTER PAGE ================================ //
+
+        public function Register() {
             $data['PageTitle'] = 'Register';
-            $this->render('pages', $page, $data);
+            $this->render('pages', $data);
         }
 
-        public function portfolio() {
-            $page = "portfolio";
+        // ================================ PORTFOLIO PAGE ================================ //
+
+        public function Portfolio() {
             $data['PageTitle'] = 'Portfolio';
-            $this->render('pages', $page, $data);
+            $this->render('pages', $data);
         }
 
-        public function account_login() {
-            $this->Account_model->user_login();
-        }
+        // ================================ LOGIN CONNECT TO MODEL ================================ //
 
-        public function account_register() {
-            //$this->Account_model->user_registration();
-
+        public function Account_login() {
             $user_input = $this->input->post();
-            $result = $this->Account_model->user_registration($user_input);
+            $status = $this->Account_model->user_login($user_input);
 
-            if ($result['status']) {
-                echo "
-                    <script>
-                        swal({
-                            icon: 'success',
-                            title: '".$result['message']."',
-                            text: '',
-                            timer: 1500,
-                            showConfirmButton: false
-                        }).then(() => {
-                            window.location.href = '".base_url('pages/login')."';
-                        });
-                    </script>
-                ";
+            if($status == true) {
+                redirect('Access/Dashboard');
             } else {
-                echo "
-                    <script>
-                        swal({
-                            icon: 'error',
-                            title: '".$result['message']."',
-                            text: '',
-                            timer: 1500,
-                            showConfirmButton: false
-                        }).then(() => {
-                            window.location.href = '".base_url('pages/register')."';
-                        });
-                    </script>
-                ";
+                redirect('Pages/Login');
             }
-       
+        }
+
+        // ================================ REGISTER CONNECT TO MODEL ================================ //
+
+        public function Account_register() {
+            $user_input = $this->input->post();
+            $status = $this->Account_model->user_registration($user_input);
+
+            if($status == true) {
+                redirect('Pages/Login');
+            } else {
+                redirect('Pages/Register');
+            }
         }
     }
 ?>

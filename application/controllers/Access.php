@@ -1,44 +1,110 @@
 <?php
     class Access extends MY_Controller {
-        // public function __construct() {
-        //     parent::__construct();
-        //     $this->load->model('Posts_model');
-        // }
+        public function __construct() {
+            parent::__construct();
+            $this->load->library('session');
+            $this->load->model('Crud_model');
+        }
     
-        public function dashboard() {
-            $page = "dashboard";
+        // ================================ DASHBOARD PAGE ================================ //
+
+        public function Dashboard() {
+            $page = "Dashboard";
             $data['PageTitle'] = 'Dashboard';
-            $this->render('access', $page, $data);
+            $this->render('access', $data);
         }
 
-        public function crud() {
-            $page = "crud";
+        // ================================ CRUD MAIN PAGE ================================ //
+
+        public function Crud() {
             $data['PageTitle'] = 'CRUD';
-            $this->render('access', $page, $data);
+            $data['query_run'] = $this->Crud_model->User_crud();
+            $this->render('access', $data);
         }
 
-        public function create() {
-            $page = "create";
+        // ================================ CREATE PAGE ================================ //
+
+        public function Create() {
             $data['PageTitle'] = 'Create';
-            $this->render('access', $page, $data);
+            $this->render('access', $data);
         }
 
-        public function edit() {
-            $page = "edit";
+        // ================================ EDIT PAGE ================================ //
+
+        public function Edit() {
             $data['PageTitle'] = 'Edit';
-            $this->render('access', $page, $data);
+
+            $user_input = $this->input->post();
+            $data['query_run'] = $this->Crud_model->User_view($user_input);
+            $status = $this->Crud_model->User_view($user_input);
+
+            if($status == true) {
+                $this->render('access', $data);
+            } else {
+                redirect('Access/Crud'); 
+            }
         }
 
-        public function view() {
-            $page = "view";
+        // ================================ VIEW PAGE ================================ //
+
+        public function View() {
             $data['PageTitle'] = 'View';
-            $this->render('access', $page, $data);
+
+            $user_input = $this->input->post();
+            $data['query_run'] = $this->Crud_model->User_view($user_input);
+            $status = $this->Crud_model->User_view($user_input);
+
+            if($status == true) {
+                $this->render('access', $data);
+            } else {
+                redirect('Access/Crud'); 
+            }
         }
 
-        public function calculator() {
-            $page = "calculator";
+        // ================================ DELETE PAGE ================================ //
+
+        public function Delete() {
+            $user_input = $this->input->post();
+            $status = $this->Crud_model->User_delete($user_input);
+
+            if($status == true) {
+                redirect('Access/Crud');
+            } else {
+                redirect('Access/Calculator');
+            }
+        }
+
+        // ================================ CALCULATOR PAGE ================================ //
+
+        public function Calculator() {
             $data['PageTitle'] = 'Calculator';
-            $this->render('access', $page, $data);
+            $this->render('access', $data);
+        }
+
+        // ================================ CREATE CONNECT TO MODEL ================================ //
+
+        public function User_create() {
+            $user_input = $this->input->post();
+            $status = $this->Crud_model->User_create($user_input);
+
+            if($status == true) {
+                redirect('Access/Create');
+            } else {
+                redirect('Access/Calculator');
+            }
+        }
+
+        // ================================ EDIT CONNECT TO MODEL ================================ //
+
+        public function User_edit() {
+            $user_input = $this->input->post();
+            $status = $this->Crud_model->user_edit($user_input);
+
+            if($status == true) {
+                redirect('Access/Crud');
+            } else {
+                redirect('Access/Calculator'); 
+            }
         }
     }
 ?>

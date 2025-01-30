@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="/week-two/assets/stylesheet/stylesheet.css">
     
   </head>
@@ -19,23 +20,23 @@
           <?php
             if($IsLoggedIn == true) {
           ?>
-              <a class="navbar-brand" href="<?=base_url('access/dashboard'); ?>">MY DASHBOARD</a>
+              <a class="navbar-brand" href="<?=base_url('Access/Dashboard'); ?>">MY DASHBOARD</a>
               <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
               </button>
               <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                   <li class="nav-item">
-                    <a class="nav-link <?php if ($PageTitle == 'Dashboard'){?>active<?php }?>" href="<?=base_url('access/dashboard'); ?>">DASHBOARD<span class="sr-only">(current)</span></a>
+                    <a class="nav-link <?php if ($PageTitle == 'Dashboard'){?>active<?php }?>" href="<?=base_url('Access/Dashboard'); ?>">DASHBOARD<span class="sr-only">(current)</span></a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link <?php if ($PageTitle == 'CRUD' || $PageTitle == 'Create' || $PageTitle == 'Edit' || $PageTitle == 'View'){?>active<?php }?>" href="<?=base_url('access/crud'); ?>">CRUD OPERATION</a>
+                    <a class="nav-link <?php if ($PageTitle == 'CRUD' || $PageTitle == 'Create' || $PageTitle == 'Edit' || $PageTitle == 'View'){?>active<?php }?>" href="<?=base_url('Access/Crud'); ?>">CRUD OPERATION</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link <?php if ($PageTitle == 'Calculator'){?>active<?php }?>" href="<?=base_url('access/calculator'); ?>">CALCULATOR</a>
+                    <a class="nav-link <?php if ($PageTitle == 'Calculator'){?>active<?php }?>" href="<?=base_url('Access/Calculator'); ?>">CALCULATOR</a>
                   </li>
                   <li class="nav-item logoutButton active">
-                    <a class="nav-link" href="<?=base_url(); ?>">LOGOUT</a>
+                    <a class="nav-link" href="<?=base_url('Pages/Login'); ?>">LOGOUT</a>
                   </li>
                 </ul>
               </div>
@@ -52,10 +53,10 @@
                     <a class="nav-link <?php if ($PageTitle == 'Home'){?>active<?php }?>" href="<?=base_url(); ?>">HOME<span class="sr-only">(current)</span></a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link <?php if ($PageTitle == 'Login' || $PageTitle == 'Register'){?>active<?php }?>" href="<?=base_url('pages/login'); ?>">LOGIN</a>
+                    <a class="nav-link <?php if ($PageTitle == 'Login' || $PageTitle == 'Register'){?>active<?php }?>" href="<?=base_url('Pages/Login'); ?>">LOGIN</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link <?php if ($PageTitle == 'Portfolio'){?>active<?php }?>" href="<?=base_url('pages/portfolio'); ?>">PORTFOLIO</a>
+                    <a class="nav-link <?php if ($PageTitle == 'Portfolio'){?>active<?php }?>" href="<?=base_url('Pages/Portfolio'); ?>">PORTFOLIO</a>
                   </li>
                 </ul>
               </div>
